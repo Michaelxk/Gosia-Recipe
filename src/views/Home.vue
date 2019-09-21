@@ -1,14 +1,11 @@
 <template>
   <div id="app">
     <header role="header" class="jumbotron">
-      <h3 class="title text-center">Gosia</h3>
-      <h2 class="title text-center">Recipe</h2>
-    </header>
-    <div class="searchRecipe-content">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search Recipes">
-      </form>
-    </div>
+      <div class="container-info">
+        <h2 class="title text-center">Gosia</h2>
+        <h1 class="title text-center">Recipes</h1>
+      </div>
+  </header>
     <RecipeApi></RecipeApi>
 </div>
 </template>
@@ -28,8 +25,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .jumbotron {
-  .h2 h3 {
-    font-size: bold;
+  background-image: url('https://www.diabetes.org/sites/default/files/styles/paragraph_50_50/public/2019-08/Diabetes-Superfoods-min.jpg');
+  background-size: cover;
+  .container-info {
+    background: #000;
+    background-size: cober
+  }
+  .title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.3rem;
   }
 }
 .searchRecipe-content {
@@ -37,9 +42,8 @@ export default {
   margin-top: -50px;
   margin-left: auto;
   margin-right: auto;
-   .form-control {
+  .form-control {
     display: flex;
-
  }
 }
 
