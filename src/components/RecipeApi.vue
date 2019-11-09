@@ -73,10 +73,10 @@ export default {
   }
   b-card {
   width: 68%;
-  display: flex;
-  justify-content: center;
   }
   .img-fluid {
     max-width: 100%;
+    display: flex;
+    margin: 0 auto;
   }
 </style>

@@ -27,24 +27,19 @@ export default {
 .jumbotron {
   background-image: url('https://www.diabetes.org/sites/default/files/styles/paragraph_50_50/public/2019-08/Diabetes-Superfoods-min.jpg');
   background-size: cover;
-  .container-info {
-    background: #000;
-    background-size: cober
-  }
   .title {
-    color: #fff;
+    color: #000;
     font-weight: bold;
     font-size: 2.3rem;
+    background: rgba(249, 193, 50, 0.5);
+    margin: 0;
   }
-}
-.searchRecipe-content {
-  width: 80%;
-  margin-top: -50px;
-  margin-left: auto;
-  margin-right: auto;
-  .form-control {
-    display: flex;
- }
+  h1 {
+    padding-bottom: 20px;
+  }
+  h2 {
+     padding-top: 20px;
+  }
 }
 
 </style>
