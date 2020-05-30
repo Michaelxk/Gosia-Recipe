@@ -1,45 +1,66 @@
 <template>
   <div id="app">
-    <header role="header" class="jumbotron">
-      <div class="container-info">
-        <h2 class="title text-center">Gosia</h2>
-        <h1 class="title text-center">Recipes</h1>
+    <header role="header" class="header">
+      <div class="jumbotron">
+        <div class="container-info">
+          <h2 class="title text-center">Gosia</h2>
+          <h1 class="title text-center">Recipes</h1>
+        </div>
       </div>
-  </header>
+    </header>
     <RecipeApi></RecipeApi>
-</div>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
-import RecipeApi from '@/components/RecipeApi.vue'
+import RecipeApi from '@/components/RecipeApi.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'home',
-  components: { RecipeApi },
-  data () {
+  components: { RecipeApi, Footer },
+  data() {
     return {
       recipes: []
-    }
+    };
   }
-}
+};
 </script>
 <style lang="scss" scoped>
+.header {
+  height: 34%;
+}
 .jumbotron {
   background-image: url('https://www.diabetes.org/sites/default/files/styles/paragraph_50_50/public/2019-08/Diabetes-Superfoods-min.jpg');
   background-size: cover;
   .title {
     color: #000;
-    font-weight: bold;
-    font-size: 2.3rem;
-    background: rgba(249, 193, 50, 0.5);
+    letter-spacing: 1px;
+    font-family: 'Lilita One', cursive;
+    z-index: 1;
     margin: 0;
+    letter-spacing: 3px;
   }
   h1 {
     padding-bottom: 20px;
+    font-size: 2.7em;
   }
   h2 {
-     padding-top: 20px;
+    font-size: 2.5em;
+    padding-top: 20px;
   }
 }
 
+.jumbotron:before {
+  content: '';
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(249, 193, 50, 0.5);
+  opacity: 0.5;
+  z-index: 1;
+}
 </style>
