@@ -55,7 +55,7 @@ export default {
 .jumbotron:before {
   content: '';
   width: 100%;
-  height: 40%;
+  height: 32.5%;
   position: absolute;
   top: 0;
   left: 0;
