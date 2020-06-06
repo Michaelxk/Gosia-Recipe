@@ -10,17 +10,18 @@
 </template>
 <script>
 export default {
-  name: 'Footer',
-  data() {
-    return {}
-  }
-}
+  name: 'Footer'
+};
 </script>
 <style lang="scss" scoped>
 .footer {
   background: #f2f2f2;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 p {
+  margin-top: 10px;
 }
 </style>

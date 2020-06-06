@@ -96,6 +96,11 @@ export default {
 }
 b-card {
   width: 68%;
+  justify-content: center;
+}
+
+span:nth-child(2) {
+  margin: 5px;
 }
 
 .img-fluid {

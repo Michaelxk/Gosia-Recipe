@@ -52,15 +52,15 @@ export default {
   }
 }
 
-.jumbotron:before {
-  content: '';
-  width: 100%;
-  height: 32.5%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(249, 193, 50, 0.5);
-  opacity: 0.5;
-  z-index: 1;
-}
+// .jumbotron:before {
+//   content: '';
+//   width: 100%;
+//   height: 40%;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background: rgba(249, 193, 50, 0.5);
+//   opacity: 0.5;
+//   z-index: 1;
+// }
 </style>
