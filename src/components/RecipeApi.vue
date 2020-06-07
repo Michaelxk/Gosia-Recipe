@@ -28,84 +28,87 @@
           <span class="badge badge-secondary mr-10">Ready in : {{ result.readyInMinutes }} Minutes</span>
         </b-card-text>
         <b-button
-          href="#"
           variant="primary"
           class="btn btn-warning"
-          @click="recipeSelected()"
+          @click="recipeSelected(result.id)"
         >Nutrition Facts</b-button>
       </b-card>
     </div>
   </div>
 </template>
 <script>
-import axios from 'axios';
+import { getRecipes } from '@/Api';
 
 export default {
-  name: 'RecipeApi',
-  props: ['RecipeApi'],
-  data() {
-    return {
-      input: '',
-      results: [],
-      baseUri: ''
-    };
-  },
-  created() {
-    this.getApiInfo();
-  },
-  methods: {
-    getApiInfo(result) {
-      const config = {
-        params: {
-          number: 10,
-          query: this.input
-        },
-        headers: {
-          'X-RapidAPI-Host':
-            'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-          'X-RapidAPI-Key': '8910cc5519msh2f5fd45de68a240p1c1946jsn2cdaf7a2b819'
-        }
-      };
-      axios
-        .get(
-          'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
-          config
-        )
-        .then(response => {
-          console.log(response);
-          this.baseUri = response.data.baseUri;
-          this.results = response.data.results;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-    recipeSelected(getApiInfo) {
-      this.$router.push({ name: 'NutritionFact' });
-    }
-  }
+	name: 'RecipeApi',
+	props: ['RecipeApi'],
+	data() {
+		return {
+			input: '',
+			results: [],
+			baseUri: ''
+		};
+	},
+	created() {
+		this.getApiInfo();
+		this.results = getRecipes(10);
+	},
+	methods: {
+		getApiInfo(result) {
+			const config = {
+				params: {
+					number: 10,
+					query: this.input
+				},
+				headers: {
+					'X-RapidAPI-Host':
+						'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+					'X-RapidAPI-Key': '8910cc5519msh2f5fd45de68a240p1c1946jsn2cdaf7a2b819'
+				}
+			};
+			axios
+				.get(
+					'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+					config
+				)
+				.then(response => {
+					console.log(response);
+					this.baseUri = response.data.baseUri;
+					this.results = response.data.results;
+				})
+				.catch(err => {
+					console.log(err);
+				});
+		},
+		recipeSelected(id) {
+			this.$router.push({
+				name: 'NutritionFact',
+				params: { id }
+			});
+		}
+	}
 };
 </script>
 <style>
 .form-inline .form-control {
-  display: flex;
-  margin: 0 auto;
-  margin-top: -60px;
-  width: 68%;
-  z-index: 1;
+	display: flex;
+	margin: 0 auto;
+	margin-top: -60px;
+	width: 68%;
+	z-index: 1;
 }
 b-card {
-  width: 68%;
-  justify-content: center;
+	width: 68%;
+	justify-content: center;
 }
 
 span:nth-child(2) {
-  margin: 5px;
+	margin: 5px;
 }
 
 .img-fluid {
-  max-width: 100%;
-  display: flex;
-  margin: 0 auto;
+	max-width: 100%;
+	display: flex;
+	margin: 0 auto;
 }
 </style>

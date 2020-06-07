@@ -14,7 +14,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/nutritionFact',
+      path: '/recipes/:id/nutrition_fact',
       name: 'NutritionFact'
     },
 

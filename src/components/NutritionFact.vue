@@ -1,16 +1,29 @@
 <template>
   <div class="container">
-    <div>
-      <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
-    </div>
+    <h1>Hello</h1>
   </div>
 </template>
 
 <script>
+import { getRecipe } from '@/Api';
+
 export default {
-  name: 'NutritionFact',
-  data() {
-    return {};
-  }
+	name: 'NutritionFact',
+	data: () => ({
+		ingredients: null,
+		instructions: null,
+		recipe: null
+	}),
+	computed: {
+		recipe_id() {
+			return this.$route.params.id;
+		}
+	},
+	created() {
+		this.recipe = getRecipe(this.recipe_id);
+	},
+	data() {
+		return {};
+	}
 };
 </script>
