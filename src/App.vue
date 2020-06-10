@@ -12,9 +12,3 @@ export default {
   components: { NavBar }
 };
 </script>
-
-<style lang="scss">
-// #app {
-//   background: #f9c132;
-// }
-</style>

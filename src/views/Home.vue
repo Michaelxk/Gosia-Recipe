@@ -8,18 +8,18 @@
         </div>
       </div>
     </header>
-    <RecipeApi></RecipeApi>
+    <RecipeCard></RecipeCard>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import RecipeApi from '@/components/RecipeApi.vue';
+import RecipeCard from '@/components/RecipeCard.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'home',
-  components: { RecipeApi, Footer },
+  components: { RecipeCard, Footer },
   data() {
     return {
       recipes: []
