@@ -1,32 +1,44 @@
 <template>
   <div class="container">
-    <div class="jumbotron"></div>
     <div class="recipe-title">
-      <h2 class="title text-center">{{ result.title }}</h2>
+      <h5 class="title text-center">{{ this.$route.params.id }}</h5>
     </div>
-    <div class="recipe-ingredients">
-      <ul></ul>
+    <div class="jumbotron"></div>
+    <h6 class="ingradients-title">Ingredients:</h6>
+    <div class="ingredients-list">
+      <ul>
+        <li>aslfkajsfsal</li>
+        <li>aslfkajsfsal</li>
+        <li>aslfkajsfsal</li>
+      </ul>
+    </div>
+    <div class="preparation">
+      <h6 class="ingradients-title">Preparation:</h6>
     </div>
   </div>
 </template>
 
 <script>
-import { getRecipe } from '@/Api';
-
 export default {
   name: 'NutritionFact',
   data: () => ({
-  //   ingredients: null,
-  //   instructions: null,
-  //   recipe: null
-  // }),
-  // computed: {
-  //   recipe_id() {
-  //     return this.$route.params.id;
-  //   }
-  // },
-  // created() {
-  //   this.recipe = getRecipe(this.recipe_id);
-  }
+    ingredients: null,
+    instructions: null,
+    recipe: null
+  })
 };
 </script>
+<style scoped>
+.jumbotron {
+  height: 7em;
+}
+.title {
+  margin-top: 1em;
+}
+.ingradients-title {
+  color: #494949;
+}
+li {
+  list-style: none;
+}
+</style>

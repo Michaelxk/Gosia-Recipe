@@ -8,6 +8,7 @@
         </div>
       </div>
     </header>
+
     <RecipeCard></RecipeCard>
     <Footer></Footer>
   </div>

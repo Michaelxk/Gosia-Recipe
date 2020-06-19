@@ -13,8 +13,8 @@
     </div>
     <div class="result">
       <b-card
-        v-for="(result, key) in results"
-        :key="key"
+        v-for="(result, id) in results"
+        :key="id"
         :img-src="baseUri + result.image"
         img-alt="Image"
         img-top
@@ -23,16 +23,20 @@
         class="img-fluid mb-2"
       >
         <h4>{{ result.title }}</h4>
+        <h4>{{ result.id }}</h4>
         <b-card-text>
           <span class="badge badge-info">Servings: {{ result.servings }}</span>
-          <span class="badge badge-secondary mr-10">Ready in : {{ result.readyInMinutes }} Minutes</span>
+          <span class="badge badge-secondary mr-10"
+            >Ready in : {{ result.readyInMinutes }} Minutes</span
+          >
         </b-card-text>
-        <b-button
-          href="#"
-          variant="primary"
-          class="btn btn-warning"
-          @click="recipeSelected()"
-        >Nutrition Facts</b-button>
+        <span>
+          <router-link
+            class="btn btn-warning"
+            :to="{ name: 'nutritionFact', params: { id: result.id } }"
+            >Preparation</router-link
+          >
+        </span>
       </b-card>
     </div>
   </div>
@@ -79,9 +83,6 @@ export default {
         .catch(err => {
           console.log(err);
         });
-    },
-    recipeSelected(getApiInfo) {
-      this.$router.push({ name: 'NutritionFact' });
     }
   }
 };
@@ -93,9 +94,6 @@ export default {
   margin-top: -60px;
   width: 70%;
   z-index: 1;
-}
-b-card {
-  justify-content: center;
 }
 
 b-card-text span {
