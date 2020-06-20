@@ -23,7 +23,6 @@
         class="img-fluid mb-2"
       >
         <h4>{{ result.title }}</h4>
-        <h4>{{ result.id }}</h4>
         <b-card-text>
           <span class="badge badge-info">Servings: {{ result.servings }}</span>
           <span class="badge badge-secondary mr-10"
@@ -87,21 +86,21 @@ export default {
   }
 };
 </script>
-<style>
+<style scope>
 .form-inline .form-control {
   display: flex;
+  width: 80%;
   margin: 0 auto;
   margin-top: -60px;
-  width: 70%;
   z-index: 1;
 }
 
-b-card-text span {
-  padding: 5px;
+b-card-text {
+  display: flex;
 }
 
-span:nth-child(2) {
-  margin: 5px;
+span:nth-child(1) {
+  margin-right: 10px;
 }
 
 .img-fluid {

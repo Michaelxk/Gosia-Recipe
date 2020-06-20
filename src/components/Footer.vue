@@ -18,7 +18,6 @@ export default {
   background: #f2f2f2;
   height: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 p {
