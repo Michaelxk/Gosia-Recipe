@@ -57,7 +57,7 @@ export default {
     this.getApiInfo();
   },
   methods: {
-    getApiInfo(result) {
+    getApiInfo() {
       const config = {
         params: {
           number: 10,
