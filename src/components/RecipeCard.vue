@@ -25,13 +25,16 @@
         <h4>{{ recipe.title }}</h4>
         <b-card-text>
           <span class="badge badge-info">Servings: {{ recipe.servings }}</span>
-          <span class="badge badge-secondary mr-10">Ready in : {{ recipe.readyInMinutes }} Minutes</span>
+          <span class="badge badge-secondary mr-10"
+            >Ready in : {{ recipe.readyInMinutes }} Minutes</span
+          >
         </b-card-text>
         <span>
           <router-link
             class="btn btn-warning"
             :to="{ name: 'nutritionFact', params: { id: recipe.id } }"
-          >Preparation</router-link>
+            >Preparation</router-link
+          >
         </span>
       </b-card>
     </div>
@@ -41,43 +44,46 @@
 import { mapState } from 'vuex';
 
 export default {
-	name: 'RecipeCard',
-	props: ['RecipeCard'],
-	data() {
-		return {
-			input: ''
-		};
-	},
-	computed: mapState(['recipes', 'baseUri']),
-	methods: {
-		fetchRecipes() {
-			this.$store.dispatch('getRecipes', this.input);
-		},
-		fetchRecipeInformation() {}
-	}
+  name: 'RecipeCard',
+  props: ['RecipeCard'],
+  data() {
+    return {
+      input: ''
+    };
+  },
+  created() {
+    this.fetchRecipes();
+  },
+  computed: mapState(['recipes', 'baseUri']),
+  methods: {
+    fetchRecipes() {
+      this.$store.dispatch('getRecipes', this.input);
+    },
+    fetchRecipeInformation() {}
+  }
 };
 </script>
 <style scope>
 .form-inline .form-control {
-	display: flex;
-	width: 80%;
-	margin: 0 auto;
-	margin-top: -60px;
-	z-index: 1;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: -60px;
+  z-index: 1;
 }
 
 b-card-text {
-	display: flex;
+  display: flex;
 }
 
 span:nth-child(1) {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 .img-fluid {
-	width: 90%;
-	max-width: 100%;
-	display: flex;
-	margin: 0 auto;
+  width: 90%;
+  max-width: 100%;
+  display: flex;
+  margin: 0 auto;
 }
 </style>

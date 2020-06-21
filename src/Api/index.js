@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Axios from 'axios';
 
 axios.defaults.headers.common['X-RapidAPI-Host'] =
   'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
