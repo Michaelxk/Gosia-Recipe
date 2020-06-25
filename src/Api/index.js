@@ -27,15 +27,14 @@ export default {
       .catch(err => console.log(err));
   },
   getRecipeInformation(id) {
+    const config = {};
     return axios
       .get(
-        `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}`,
+        `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
         config
       )
       .then(response => {
-        const baseUri = response.data.baseUri;
-        const recipeInformation = response.data.results;
-        return recipeInformation;
+        return response.data;
       })
       .catch(err => console.log(err));
   }

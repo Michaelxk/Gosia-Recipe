@@ -6,7 +6,6 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    // input: '',
     recipes: [],
     baseUri: '',
     recipeInformation: {}
@@ -17,7 +16,7 @@ export const store = new Vuex.Store({
       state.recipes = recipes;
       state.baseUri = baseUri;
     },
-    mutateRecipeInformation(state, { recipeInformation }) {
+    mutateRecipeInformation(state, recipeInformation) {
       state.recipeInformation = recipeInformation;
     }
   },

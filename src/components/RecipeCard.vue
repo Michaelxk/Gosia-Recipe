@@ -31,6 +31,7 @@
         </b-card-text>
         <span>
           <router-link
+            @submit.prevent="getRecipeInformation"
             class="btn btn-warning"
             :to="{ name: 'nutritionFact', params: { id: recipe.id } }"
             >Preparation</router-link
@@ -58,8 +59,7 @@ export default {
   methods: {
     fetchRecipes() {
       this.$store.dispatch('getRecipes', this.input);
-    },
-    fetchRecipeInformation() {}
+    }
   }
 };
 </script>

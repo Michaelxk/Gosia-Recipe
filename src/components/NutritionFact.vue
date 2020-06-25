@@ -2,7 +2,8 @@
   <div class="nutrition-fact">
     <div class="container">
       <div class="recipe-title">
-        <h5 class="title text-center">{{ this.$route.params.id }}</h5>
+        <h5 class="title text-center">{{ recipeId }}</h5>
+        <!-- <h4>{{ recipe.title }}</h4> -->
       </div>
       <div class="jumbotron"></div>
       <h6 class="ingradients-title">Ingredients:</h6>
@@ -21,13 +22,25 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'NutritionFact',
-  data: () => ({
-    ingredients: null,
-    instructions: null,
-    recipe: null
-  })
+  data: () => ({}),
+  created() {
+    this.fetchRecipeInformation();
+  },
+  computed: {
+    ...mapState(['recipeInformation']),
+    recipeId() {
+      return this.$route.params.id;
+    }
+  },
+  methods: {
+    fetchRecipeInformation() {
+      this.$store.dispatch('getRecipeInformation', this.recipeId);
+    }
+  }
 };
 </script>
 <style scoped>
