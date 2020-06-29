@@ -36,6 +36,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### Things to do:
 
-1. rename RecipeCard in RecipeCardList
+1. rename RecipeCard in RecipeCardList -READY
 2. remove input from RecipeCardList
 3. Create NutritionFact View

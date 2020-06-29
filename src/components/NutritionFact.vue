@@ -1,12 +1,20 @@
 <template>
   <div class="nutrition-fact">
     <div class="container">
+      <div class="jumbotron"></div>
       <div class="recipe-title">
         <h5 class="title text-center">{{ recipeId }}</h5>
-        <!-- <h4>{{ recipe.title }}</h4> -->
       </div>
-      <div class="jumbotron"></div>
+      <div class="summary">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quod
+          ad iure explicabo voluptates temporibus quaerat, vel repellendus
+          laboriosam tempore sequi praesentium officia dolorum! Placeat cum
+          minus doloribus neque. Fugit?
+        </p>
+      </div>
       <h6 class="ingradients-title">Ingredients:</h6>
+
       <div class="ingredients-list">
         <ul>
           <li>aslfkajsfsal</li>
@@ -16,6 +24,14 @@
       </div>
       <div class="preparation">
         <h6 class="ingradients-title">Preparation:</h6>
+        <div class="instruction-content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
+            voluptatem provident labore eius reprehenderit, vitae molestiae
+            consequuntur quam sint delectus minima recusandae ea amet officiis
+            iste! Nam ipsum ea qui!
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -31,7 +47,7 @@ export default {
     this.fetchRecipeInformation();
   },
   computed: {
-    ...mapState(['recipeInformation']),
+    ...mapState(['recipeInformation', 'recipes']),
     recipeId() {
       return this.$route.params.id;
     }

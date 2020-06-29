@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <div class="container">
     <b-card
       v-for="(recipe, id) in recipes"
       :key="id"
@@ -28,3 +28,25 @@
     </b-card>
   </div>
 </template>
+<script>
+import { mapState } from 'vuex';
+
+export default {
+  name: 'RecipeCardList',
+  // props: ['RecipeCard'],
+  data() {
+    return {
+      input: ''
+    };
+  },
+  created() {
+    this.fetchRecipes();
+  },
+  computed: mapState(['recipes', 'baseUri']),
+  methods: {
+    fetchRecipes() {
+      this.$store.dispatch('getRecipes', this.input);
+    }
+  }
+};
+</script>
