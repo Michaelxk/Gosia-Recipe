@@ -33,20 +33,8 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'RecipeCardList',
-  // props: ['RecipeCard'],
-  data() {
-    return {
-      input: ''
-    };
-  },
-  created() {
-    this.fetchRecipes();
-  },
-  computed: mapState(['recipes', 'baseUri']),
-  methods: {
-    fetchRecipes() {
-      this.$store.dispatch('getRecipes', this.input);
-    }
+  computed: {
+    ...mapState(['recipes', 'baseUri'])
   }
 };
 </script>
