@@ -8,6 +8,7 @@
         v-model="input"
         required
       ></b-form-input>
+      <button type="submit">Search</button>
     </form>
   </div>
 </template>
@@ -21,7 +22,9 @@ export default {
     };
   },
   methods: {
-    fetchRecipe() {}
+    fetchRecipes() {
+      this.$store.commit('mutateRecipesSearchInput', this.input);
+    }
   }
 };
 </script>

@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
   state: {
     recipes: [],
     baseUri: '',
-    recipeInformation: {}
+    recipeInformation: {},
+    recipesSearchInput: ''
   },
   getters: {},
   mutations: {
@@ -18,6 +19,9 @@ export const store = new Vuex.Store({
     },
     mutateRecipeInformation(state, recipeInformation) {
       state.recipeInformation = recipeInformation;
+    },
+    mutateRecipesSearchInput(state, input) {
+      state.recipesSearchInput = input;
     }
   },
   actions: {

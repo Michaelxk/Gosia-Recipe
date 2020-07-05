@@ -29,11 +29,16 @@ export default {
     this.fetchRecipes();
   },
   computed: {
-    ...mapState(['recipes', 'baseUri'])
+    ...mapState(['recipes', 'baseUri', 'recipesSearchInput'])
+  },
+  watch: {
+    recipesSearchInput: function(newInput, oldInput) {
+      this.fetchRecipes();
+    }
   },
   methods: {
     fetchRecipes() {
-      this.$store.dispatch('getRecipes', this.input);
+      this.$store.dispatch('getRecipes', this.recipesSearchInput);
     }
   }
 };

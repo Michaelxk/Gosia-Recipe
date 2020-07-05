@@ -20,7 +20,6 @@ export default {
         config
       )
       .then(response => {
-        console.log(response);
         const baseUri = response.data.baseUri;
         const recipes = response.data.results;
         return { recipes, baseUri };
@@ -35,7 +34,6 @@ export default {
         config
       )
       .then(response => {
-        console.log(response.data);
         return response.data;
       })
       .catch(err => console.log(err));
