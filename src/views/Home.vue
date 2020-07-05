@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
 
-    <Search />
+    <Search @searchRecipes="fetchRecipes" />
 
     <RecipeCardList />
 
@@ -15,25 +15,19 @@ import Header from '@/components/Header.vue';
 import Search from '@/components/Search.vue';
 import RecipeCardList from '@/components/RecipeCardList.vue';
 import Footer from '@/components/Footer.vue';
-import { mapState } from 'vuex';
 
 export default {
   name: 'home',
   components: { Header, Search, RecipeCardList, Footer },
   data() {
-    return {
-      input: null
-    };
+    return {};
   },
   created() {
     this.fetchRecipes();
   },
-  computed: {
-    ...mapState(['recipes', 'baseUri'])
-  },
   methods: {
-    fetchRecipes() {
-      this.$store.dispatch('getRecipes', this.input);
+    fetchRecipes(input) {
+      this.$store.dispatch('getRecipes', input);
     }
   }
 };
