@@ -6,6 +6,11 @@ axios.defaults.headers.common['X-RapidAPI-Key'] =
   '8910cc5519msh2f5fd45de68a240p1c1946jsn2cdaf7a2b819';
 
 export default {
+  data() {
+    return {
+      input: ''
+    };
+  },
   // returns recipes searched from input
   getRecipes(input) {
     const config = {

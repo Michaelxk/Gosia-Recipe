@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
 
-    <Search />
+    <Search @fetchQuery="fetchRecipes" />
 
     <RecipeCardList />
 
@@ -31,9 +31,11 @@ export default {
   computed: {
     ...mapState(['recipes', 'baseUri'])
   },
+
   methods: {
-    fetchRecipes() {
-      this.$store.dispatch('getRecipes', this.input);
+    fetchRecipes(input) {
+      this.$store.dispatch('getRecipes', input);
+      console.log(input);
     }
   }
 };

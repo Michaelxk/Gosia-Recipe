@@ -1,6 +1,6 @@
 <template>
   <div class="searchRecipe-content">
-    <form class="form-inline my-2 my-lg-0" @submit.prevent="fetchRecipes">
+    <form class="form-inline my-2 my-lg-0" @submit.prevent="fetchQuery">
       <b-form-input
         class="form-control mr-sm-2"
         type="search"
@@ -21,7 +21,9 @@ export default {
     };
   },
   methods: {
-    fetchRecipe() {}
+    fetchQuery() {
+      this.$emit('fetchQuery', this.input);
+    }
   }
 };
 </script>
