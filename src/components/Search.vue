@@ -4,7 +4,7 @@
       <b-form-input
         class="form-control mr-sm-2"
         type="search"
-        placeholder="Search Recipes"
+        placeholder="Search Recipes..."
         v-model="input"
         required
       ></b-form-input>
@@ -30,6 +30,10 @@ export default {
 
 <style scoped>
 .searchRecipe-content {
-  margin: -2em 0px 30px;
+  margin: -3.2em 0px 30px;
+}
+.form-control {
+  width: 80%;
+  margin: 0 auto;
 }
 </style>

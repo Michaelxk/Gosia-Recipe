@@ -42,6 +42,7 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'NutritionFact',
+  props: [''],
   data: () => ({}),
   created() {
     this.fetchRecipeInformation();

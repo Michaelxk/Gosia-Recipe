@@ -2,11 +2,11 @@
   <div id="app">
     <Header />
 
-    <Search @fetchQuery="fetchRecipes" />
+    <Search @fetchQuery="fetchRecipes" class="search" />
 
-    <RecipeCardList />
+    <RecipeCardList :recipes="recipes" :baseUri="baseUri" />
 
-    <Footer />
+    <Footer class="footer" />
   </div>
 </template>
 
@@ -40,4 +40,3 @@ export default {
   }
 };
 </script>
-<style scoped></style>

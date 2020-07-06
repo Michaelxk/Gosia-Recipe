@@ -17,8 +17,7 @@ export default {
 .footer {
   background: #f2f2f2;
   height: 50px;
-  display: flex;
-  justify-content: center;
+  width: 100vw;
 }
 p {
   margin-top: 10px;

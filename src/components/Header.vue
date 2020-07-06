@@ -20,8 +20,9 @@ export default {
 .jumbotron {
   background-image: url('https://www.diabetes.org/sites/default/files/styles/paragraph_50_50/public/2019-08/Diabetes-Superfoods-min.jpg');
   background-size: cover;
+  background-position: center;
   .title {
-    color: #000;
+    color: #38271f;
     letter-spacing: 1px;
     font-family: 'Lilita One', cursive;
     z-index: 1;

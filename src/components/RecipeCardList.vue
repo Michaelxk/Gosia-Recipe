@@ -10,11 +10,11 @@
       style="max-width: 20rem;"
       class="img-fluid mb-2"
     >
-      <h4>{{ recipe.title }}</h4>
+      <h4 class="title">{{ recipe.title }}</h4>
       <b-card-text>
         <span class="badge badge-info">Servings: {{ recipe.servings }}</span>
         <span class="badge badge-secondary mr-10"
-          >Ready in : {{ recipe.readyInMinutes }} Minutes</span
+          >Ready in : {{ recipe.readyInMinutes }} Min.</span
         >
       </b-card-text>
       <span>
@@ -38,3 +38,32 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.container span {
+  margin-right: 5px;
+}
+.btn {
+  width: 100%;
+}
+
+@media screen and(max-width: 330px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+}
+@media screen and(min-width: 330px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+    .title {
+      font-size: 1.1em;
+    }
+    span {
+      font-size: 0.7em;
+    }
+  }
+}
+</style>
