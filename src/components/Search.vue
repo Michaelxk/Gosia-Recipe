@@ -8,29 +8,28 @@
         v-model="input"
         required
       ></b-form-input>
-      <button type="submit">Search</button>
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Search',
-  data() {
-    return {
-      input: ''
-    };
-  },
-  methods: {
-    fetchRecipes() {
-      this.$emit('searchRecipes', this.input);
-    }
-  }
+	name: 'Search',
+	data() {
+		return {
+			input: ''
+		};
+	},
+	methods: {
+		fetchRecipes() {
+			this.$emit('searchRecipes', this.input);
+		}
+	}
 };
 </script>
 
 <style scoped>
 .searchRecipe-content {
-  margin: -2em 0px 30px;
+	margin: -2em 0px 30px;
 }
 </style>
