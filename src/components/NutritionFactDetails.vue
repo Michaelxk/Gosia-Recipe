@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container">
     <div class="recipe-title">
       <h5 class="title text-center mb-5">
         {{ this.recipeInformation.title }}
@@ -32,7 +32,7 @@
       >
     </div>
 
-    <section class="nutrition-facts">
+    <div class="nutrition-facts">
       <div class="icons">
         <i class="fas fa-seedling"></i>
         <i class="fas fa-bread-slice"></i>
@@ -50,33 +50,9 @@
           Health Score: <span>{{ this.recipeInformation.healthScore }}%</span>
         </h6>
       </div>
-    </section>
+    </div>
   </div>
 </template>
-
-<script>
-import { mapState } from 'vuex';
-
-export default {
-  name: 'NutritionFact',
-
-  data: () => ({}),
-  created() {
-    this.fetchRecipeInformation();
-  },
-  computed: {
-    ...mapState(['recipeInformation', 'recipes']),
-    recipeId() {
-      return this.$route.params.id;
-    }
-  },
-  methods: {
-    fetchRecipeInformation() {
-      this.$store.dispatch('getRecipeInformation', this.recipeId);
-    }
-  }
-};
-</script>
 <style lang="scss">
 li {
   list-style: none;
@@ -86,7 +62,7 @@ h5 {
 }
 .badge {
   margin-right: 10px;
-  padding: 5px 5px;
+  padding: 5px 10px 5px;
 }
 .secundary-info {
   display: flex;

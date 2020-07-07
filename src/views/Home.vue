@@ -5,7 +5,6 @@
     <Search @fetchQuery="fetchRecipes" class="search" />
 
     <RecipeCardList :recipes="recipes" :baseUri="baseUri" />
-
     <Footer class="footer" />
   </div>
 </template>
