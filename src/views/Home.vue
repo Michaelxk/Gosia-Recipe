@@ -5,7 +5,6 @@
     <Search @fetchQuery="fetchRecipes" class="search" />
 
     <RecipeCardList :recipes="recipes" :baseUri="baseUri" />
-    <Footer class="footer" />
   </div>
 </template>
 
@@ -13,12 +12,11 @@
 import Header from '@/components/Header.vue';
 import Search from '@/components/Search.vue';
 import RecipeCardList from '@/components/RecipeCardList.vue';
-import Footer from '@/components/Footer.vue';
 import { mapState } from 'vuex';
 
 export default {
   name: 'home',
-  components: { Header, Search, RecipeCardList, Footer },
+  components: { Header, Search, RecipeCardList },
   data() {
     return {
       input: null
