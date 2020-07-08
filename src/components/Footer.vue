@@ -3,7 +3,7 @@
     <div class="container">
       <p class="text-center">
         All right reserved by &copy;
-        <a href="https://michaelxk.com/">Michaelxk</a>
+        <a target="_blank" href="https://michaelxk.com/">Michaelxk</a>
       </p>
     </div>
   </div>
