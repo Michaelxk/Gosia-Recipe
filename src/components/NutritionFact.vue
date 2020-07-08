@@ -75,10 +75,10 @@
           <strong>Very Healthy:</strong>
           {{ recipeInformation.veryHealthy }}
         </div>
-        <div class="notice  notice-sm">
+        <!-- <div class="notice  notice-sm">
           <strong>Sourse:</strong>
           {{ recipeInformation.cuisines[0] }}
-        </div>
+        </div> -->
       </div>
     </section>
   </div>
@@ -89,10 +89,11 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'NutritionFact',
-
-  data: () => ({
-    ingredients: []
-  }),
+  data() {
+    return {
+      ingredients: []
+    };
+  },
   created() {
     this.fetchRecipeInformation();
   },

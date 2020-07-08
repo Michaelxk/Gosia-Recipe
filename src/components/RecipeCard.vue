@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <div class="container">
     <b-card
       v-for="(recipe, id) in recipes"
       :key="id"
@@ -10,13 +10,7 @@
       style="max-width: 20rem;"
       class="img-fluid mb-2"
     >
-      <h4>{{ recipe.title }}</h4>
-      <b-card-text>
-        <span class="badge badge-info">Servings: {{ recipe.servings }}</span>
-        <span class="badge badge-secondary mr-10"
-          >Ready in : {{ recipe.readyInMinutes }} Minutes</span
-        >
-      </b-card-text>
+      <h4 class="title">{{ recipe.title }}</h4>
       <span>
         <router-link
           @submit.prevent="getRecipeInformation"
