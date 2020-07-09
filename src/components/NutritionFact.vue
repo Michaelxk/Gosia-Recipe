@@ -81,9 +81,9 @@
             <strong>Sourse:</strong>
             {{ recipeInformation.cuisines[0] }}
           </div> -->
-          <div class="summary">
+          <!-- <div class="summary">
             {{ recipeInformation.summary }}
-          </div>
+          </div> -->
         </div>
       </section>
     </div>

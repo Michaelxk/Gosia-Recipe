@@ -32,7 +32,6 @@ export default {
   methods: {
     fetchRecipes(input) {
       this.$store.dispatch('getRecipes', input);
-      console.log(input);
     }
   }
 };

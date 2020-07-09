@@ -10,7 +10,7 @@
       style="max-width: 20rem;"
       class="img-fluid mb-2"
     >
-      <h4 class="title">{{ recipe.title }}</h4>
+      <h4 class="title mb-3 text-center">{{ recipe.title }}</h4>
       <span>
         <router-link
           @submit.prevent="getRecipeInformation"
