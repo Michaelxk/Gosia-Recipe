@@ -1,86 +1,92 @@
 <template>
   <div>
-    <b-card class="card" :img-src="baseUri + recipeInformation.image">
-      <div class="recipe-title">
-        <h5 class="title text-center">
-          {{ recipeInformation.title }}
-        </h5>
-      </div>
-
-      <section class="nutrition-facts">
-        <div class="icons">
-          <i class="fas fa-seedling"></i>
-          <i class="fas fa-bread-slice"></i>
-          <i class="fas fa-percent"></i>
+    <div class="loading" v-if="isLoading">
+      <h3>loading...</h3>
+    </div>
+    <div v-else class="wrapper">
+      <b-card class="card" :img-src="recipeInformation.image">
+        <div class="recipe-title">
+          <h5 class="title text-center">
+            {{ recipeInformation.title }}
+          </h5>
         </div>
 
-        <div class="nutrition-facts-details mt-2 mb-5 ">
-          <h6>
-            Vegetarian: <span> {{ recipeInformation.vegetarian }} </span>
-          </h6>
-          <h6>
-            Gluten Free: <span>{{ recipeInformation.glutenFree }}</span>
-          </h6>
-          <h6>
-            Health Score: <span>{{ recipeInformation.healthScore }}%</span>
-          </h6>
+        <section class="nutrition-facts">
+          <div class="icons">
+            <i class="fas fa-seedling"></i>
+            <i class="fas fa-bread-slice"></i>
+            <i class="fas fa-percent"></i>
+          </div>
+          <div class="nutrition-facts-details mt-2 mb-5 ">
+            <h6>
+              Vegetarian: <span> {{ recipeInformation.vegetarian }} </span>
+            </h6>
+            <h6>
+              Gluten Free: <span>{{ recipeInformation.glutenFree }}</span>
+            </h6>
+            <h6>
+              Health Score: <span>{{ recipeInformation.healthScore }}%</span>
+            </h6>
+          </div>
+        </section>
+        <b-card-text>
+          <h6 class="ingradients-title">Ingredients:</h6>
+          <div class="ingredents-content">
+            <div class="ingredients-list mb-3">
+              <ul>
+                <li
+                  v-for="ingredient in recipeInformation.extendedIngredients"
+                  :key="ingredient.id"
+                >
+                  {{ ingredient.original }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </b-card-text>
+        <b-card-text>
+          <div class="preparation">
+            <h6 class="ingradients-title">Preparation:</h6>
+            <div class="instruction-content">
+              <p class="instruction">
+                {{ recipeInformation.instructions }}
+              </p>
+            </div>
+          </div>
+          <div class="secundary-info">
+            <span class="badge badge-info"
+              >Servings: {{ recipeInformation.servings }}</span
+            >
+            <span class="badge badge-secondary mr-10"
+              >Ready in : {{ recipeInformation.readyInMinutes }} Min.</span
+            >
+          </div>
+        </b-card-text>
+      </b-card>
+      <section class="nutrition-facts-secondary mb-5">
+        <div class="container-fluid">
+          <h5 class="title mb-3 mt-5">Nutrition Facts:</h5>
+          <div class="notice notice-success">
+            <strong>Vegan:</strong> {{ recipeInformation.vegan }}
+          </div>
+          <div class="notice notice-info">
+            <strong>Is a popular Recipe ?</strong>
+            {{ recipeInformation.veryPopular }}
+          </div>
+          <div class="notice notice-warning">
+            <strong>Very Healthy:</strong>
+            {{ recipeInformation.veryHealthy }}
+          </div>
+          <!-- <div class="notice  notice-sm">
+            <strong>Sourse:</strong>
+            {{ recipeInformation.cuisines[0] }}
+          </div> -->
+          <div class="summary">
+            {{ recipeInformation.summary }}
+          </div>
         </div>
       </section>
-      <b-card-body>
-        <h6 class="ingradients-title">Ingredients:</h6>
-        <div class="ingredents-content">
-          <div class="ingredients-list mb-3">
-            <ul>
-              <li>asdfasdfsaf</li>
-              <li>asdfasdfsaf</li>
-              <li>asdfasdfsaf</li>
-              <li>asdfasdfsaf</li>
-              <li>asdfasdfsaf</li>
-            </ul>
-          </div>
-          <img :src="baseUri + recipeInformation.image" />
-        </div>
-      </b-card-body>
-      <b-card-text>
-        <div class="preparation">
-          <h6 class="ingradients-title">Preparation:</h6>
-          <div class="instruction-content">
-            <p class="instruction">
-              {{ recipeInformation.instructions }}
-            </p>
-          </div>
-        </div>
-        <div class="secundary-info">
-          <span class="badge badge-info"
-            >Servings: {{ recipeInformation.servings }}</span
-          >
-          <span class="badge badge-secondary mr-10"
-            >Ready in : {{ recipeInformation.readyInMinutes }} Min.</span
-          >
-        </div>
-      </b-card-text>
-    </b-card>
-
-    <section class="nutrition-facts-secondary mb-5">
-      <div class="container-fluid">
-        <h5 class="title mb-3 mt-5">Nutrition Facts:</h5>
-        <div class="notice notice-success">
-          <strong>Vegan:</strong> {{ recipeInformation.vegan }}
-        </div>
-        <div class="notice notice-info">
-          <strong>Is a popular Recipe ?</strong>
-          {{ recipeInformation.veryPopular }}
-        </div>
-        <div class="notice notice-warning">
-          <strong>Very Healthy:</strong>
-          {{ recipeInformation.veryHealthy }}
-        </div>
-        <!-- <div class="notice  notice-sm">
-          <strong>Sourse:</strong>
-          {{ recipeInformation.cuisines[0] }}
-        </div> -->
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -91,10 +97,12 @@ export default {
   name: 'NutritionFact',
   data() {
     return {
-      ingredients: []
+      ingredients: [],
+      isLoading: false
     };
   },
   created() {
+    this.isLoading = true;
     this.fetchRecipeInformation();
   },
   computed: {
@@ -105,7 +113,9 @@ export default {
   },
   methods: {
     fetchRecipeInformation() {
-      this.$store.dispatch('getRecipeInformation', this.recipeId);
+      this.$store
+        .dispatch('getRecipeInformation', this.recipeId)
+        .then(() => (this.isLoading = false));
     }
   }
 };
@@ -115,10 +125,7 @@ export default {
 .nutrition-facts {
   margin-bottom: -1em;
 }
-.ingredents-content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
+
 .ingredents-content img {
   max-width: 100%;
 }
@@ -150,6 +157,7 @@ h5 {
 }
 .nutrition-facts-details h6 {
   font-size: 0.6em;
+  margin-top: -10px;
 }
 .nutrition-facts-details h6 span {
   font-weight: bold;
@@ -158,8 +166,8 @@ h5 {
 .fas {
   font-size: 1.5em;
   color: #42a3b8;
-  border-radius: 50%;
   padding: 10px;
+  margin: 5px;
 }
 .fas:nth-child(2) {
   color: #f9c132;
