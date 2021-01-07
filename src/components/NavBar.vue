@@ -22,13 +22,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-nav {
-  box-shadow: 2px 13px 18px -14px rgba(0, 0, 0, 1);
-}
-.navbar-brand {
-  font-weight: bold;
-}
-.navbar-brand:hover {
+.navbar {
   color: #fff;
 }
 </style>

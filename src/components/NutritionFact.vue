@@ -120,7 +120,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style>
 .card .title,
 .nutrition-facts {
   margin-bottom: -1em;

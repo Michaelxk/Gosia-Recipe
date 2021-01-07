@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.headers.common['X-RapidAPI-Host'] =
   'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
 axios.defaults.headers.common['X-RapidAPI-Key'] =
-  '8910cc5519msh2f5fd45de68a240p1c1946jsn2cdaf7a2b819';
+  '4b2c0858d5msha5267a2c363cb8ep1929e5jsnd1c9182651b2';
 
 export default {
   data() {
